@@ -1,0 +1,1 @@
+function saveProfileFromForm(form){const fd=new FormData(form),p={};for(const [k,v]of fd.entries()){if(k==='equipment'||k==='days')continue;p[k]=String(v).trim()}p.duration=Number(p.duration)||60;for(const k of ['age','height','weight','experienceYears'])p[k]=p[k]?Number(p[k]):'';p.equipment=fd.getAll('equipment');p.days=fd.getAll('days');Store.updateProfile(p);}
